@@ -1,27 +1,39 @@
 package normaliser;
 
-import java.util.List;
-
 public class Normaliser {
-    private final List<String> JobTitlesList;
-    private final List<String> NormalisedJobTitlesList;
 
-    Normaliser(List<String> jobTitles, List<String> normalisedJobTitles) {
-        this.JobTitlesList = jobTitles;
-        this.NormalisedJobTitlesList = normalisedJobTitles;
+    private final JobTitleRepository repository;
+    private final Comparator comparator;
+    private final double threshold;
+
+    public Normaliser() {
+        this(new JobTitleRepository(), new JobTitleComparator(), 0.1);
     }
 
-
-    int compare(String jobTitle, String normalisedJobTitle) {
-        // This function will compare a job title against a normalised job titles and return a quality
-        // Job titles may be split up into multiple words
-        //this is going to be done by the job title comparator to keep this class clean and tidy.
-        return 0;
+    public Normaliser(JobTitleRepository jobTitleRepository, JobTitleComparator comparator, double threshold) {
+        this.repository = jobTitleRepository;
+        this.comparator = comparator;
+        this.threshold = threshold;
     }
 
-    //take in job titles
-    //compare each job title in list against normalised job titles list
-    //for each job title give a score of "closeness" against each normalised job title
-    //highest score per job title is what it gets assigned to..
-    //output "Job title 'C# Engineer' was normalised to 'Software Engineer'"
+    public String normalise(String input) {
+
+        if (input == null || input.isBlank()) {
+            throw new IllegalArgumentException("Input job title cannot be null or blank");
+        }
+
+        double bestScore = 0.0;
+        String bestMatch = null;
+
+        for (String normalisedTitle : repository.getAll()) {
+            double score = comparator.Compare(input, normalisedTitle);
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestMatch = normalisedTitle;
+            }
+        }
+
+        return bestScore >= threshold ? bestMatch : null;
+    }
 }
