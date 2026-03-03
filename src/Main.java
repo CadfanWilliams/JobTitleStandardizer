@@ -1,6 +1,10 @@
+import java.io.Console;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        //Take in job titles
+        //start standardizer class
+        //for each job title scan against normalised titles and best quality score wins...
+        //output csv file
     }
 }
