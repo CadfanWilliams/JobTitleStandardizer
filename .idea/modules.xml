@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JobTitleStandardizer.iml" filepath="$PROJECT_DIR$/JobTitleStandardizer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JobTitleNormaliser.iml" filepath="$PROJECT_DIR$/JobTitleNormaliser.iml" />
     </modules>
   </component>
 </project>

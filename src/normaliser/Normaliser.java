@@ -11,9 +11,11 @@ public class Normaliser {
         this.NormalisedJobTitlesList = normalisedJobTitles;
     }
 
+
     int compare(String jobTitle, String normalisedJobTitle) {
         // This function will compare a job title against a normalised job titles and return a quality
         // Job titles may be split up into multiple words
+        //this is going to be done by the job title comparator to keep this class clean and tidy.
         return 0;
     }
 
