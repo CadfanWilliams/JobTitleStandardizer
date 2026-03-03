@@ -1,3 +1,5 @@
+package normaliser;
+
 import java.util.List;
 
 public class Normaliser {
@@ -11,6 +13,7 @@ public class Normaliser {
 
     int compare(String jobTitle, String normalisedJobTitle) {
         // This function will compare a job title against a normalised job titles and return a quality
+        // Job titles may be split up into multiple words
         return 0;
     }
 
