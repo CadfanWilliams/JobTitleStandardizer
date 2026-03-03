@@ -8,5 +8,6 @@ public class Main {
         System.out.println(n.normalise("Java engineer"));
         System.out.println(n.normalise("C# engineer"));
         System.out.println(n.normalise("Chief Accountant"));
+        System.out.println(n.normalise("Chief Quantity Surveyor"));
     }
 }
