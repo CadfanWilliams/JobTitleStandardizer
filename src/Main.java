@@ -1,9 +1,12 @@
+import normaliser.Normaliser;
 
 public class Main {
     public static void main(String[] args) {
-        //Take in job titles
-        //start standardizer class
-        //for each job title scan against normalised titles and best quality score wins...
-        //output csv file
+
+        Normaliser n = new Normaliser();
+
+        System.out.println(n.normalise("Java engineer"));
+        System.out.println(n.normalise("C# engineer"));
+        System.out.println(n.normalise("Chief Accountant"));
     }
 }

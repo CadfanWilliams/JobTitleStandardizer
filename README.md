@@ -12,3 +12,10 @@ Chief Accountant" > "Accountant"
 
 internally in the process a quality score is considered (q), where 0.0 <= q <= 1.0, to find the
 closest match.
+
+Sources
+- https://www.w3schools.com/java/ref_string_split.asp
+- https://stackoverflow.com/questions/5235401/split-string-into-array-of-character-strings
+- https://www.geeksforgeeks.org/javascript/set-vs-array-in-javascript/
+- https://www.w3schools.com/java/java_hashmap.asp
+- https://stackoverflow.com/questions/18856066/java-collections-quickest-way-to-find-if-there-is-a-common-element-between-two
