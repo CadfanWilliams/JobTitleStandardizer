@@ -61,6 +61,17 @@ class NormaliserTest {
         assertEquals(Optional.of("Software engineer"), normaliser.normalise("Software engineer"));
     }
 
+    @Test
+    @DisplayName("should match all-uppercase input case-insensitively")
+    void shouldMatchAllUppercaseInput() {
+        assertEquals(Optional.of("Software engineer"), normaliser.normalise("JAVA ENGINEER"));
+    }
+
+    @Test
+    @DisplayName("should match all-lowercase input case-insensitively")
+    void shouldMatchAllLowercaseInput() {
+        assertEquals(Optional.of("Software engineer"), normaliser.normalise("java engineer"));
+    }
 
     @Test
     @DisplayName("should throw on null input")
