@@ -5,6 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * A {@link JobTitleComparator} that scores similarity by measuring the proportion of
+ * overlapping words (tokens) between the input and target title.
+ *
+ * <p>Both strings are lowercased and split on whitespace before comparison.
+ * The score is calculated as:
+ * <pre>
+ *   intersection size / max(input token count, target token count)
+ * </pre>
+ *
+ */
 public class TokenIntersectionComparator implements JobTitleComparator {
 
     @Override
