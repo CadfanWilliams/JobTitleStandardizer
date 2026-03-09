@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class JobTitleComparator implements Comparator{
-    // temp comparator to start put project together so I can start running it
+
     @Override
     public double Compare(String input, String target) {
         if (input == null || target == null) {
