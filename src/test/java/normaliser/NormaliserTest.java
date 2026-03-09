@@ -109,5 +109,18 @@ class NormaliserTest {
         assertThrows(IllegalArgumentException.class, () -> normaliser.normalise(""));
     }
 
+    @Test
+    @DisplayName("should return the first repository title when two titles score equally")
+    void shouldReturnFirstMatchOnTie() {
+        when(mockRepository.getAll()).thenReturn(List.of("Title A", "Title B"));
+        when(mockComparator.compare(anyString(), anyString())).thenReturn(0.5);
+
+        Normaliser tieNormaliser = new Normaliser(mockRepository, mockComparator, 0.1);
+        Optional<String> result = tieNormaliser.normalise("anything");
+
+        assertTrue(result.isPresent());
+        assertEquals("Title A", result.get());
+    }
+
 
 }
