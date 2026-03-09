@@ -50,6 +50,19 @@ class NormaliserTest {
     }
 
     @Test
+    @DisplayName("should return 'Architect' unchanged")
+    void shouldReturnArchitectUnchanged() {
+        assertEquals(Optional.of("Architect"), normaliser.normalise("Architect"));
+    }
+
+    @Test
+    @DisplayName("should return 'Software engineer' unchanged")
+    void shouldReturnSoftwareEngineerUnchanged() {
+        assertEquals(Optional.of("Software engineer"), normaliser.normalise("Software engineer"));
+    }
+
+
+    @Test
     @DisplayName("should throw on null input")
     void shouldThrowOnNullInput() {
         assertThrows(IllegalArgumentException.class,
