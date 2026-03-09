@@ -74,6 +74,18 @@ class NormaliserTest {
     }
 
     @Test
+    @DisplayName("should strip leading whitespace before matching")
+    void shouldStripLeadingWhitespace() {
+        assertEquals(Optional.of("Software engineer"), normaliser.normalise("  Java engineer"));
+    }
+
+    @Test
+    @DisplayName("should strip trailing whitespace before matching")
+    void shouldStripTrailingWhitespace() {
+        assertEquals(Optional.of("Software engineer"), normaliser.normalise("Java engineer  "));
+    }
+
+    @Test
     @DisplayName("should throw on null input")
     void shouldThrowOnNullInput() {
         assertThrows(IllegalArgumentException.class,
