@@ -3,14 +3,14 @@ package normaliser;
 public class Normaliser {
 
     private final JobTitleRepository repository;
-    private final Comparator comparator;
+    private final JobTitleComparator comparator;
     private final double threshold;
 
     public Normaliser() {
-        this(new JobTitleRepository(), new JobTitleComparator(), 0.1);
+        this(new JobTitleRepository(), new TokenIntersectionComparator(), 0.1);
     }
 
-    public Normaliser(JobTitleRepository jobTitleRepository, JobTitleComparator comparator, double threshold) {
+    public Normaliser(JobTitleRepository jobTitleRepository, TokenIntersectionComparator comparator, double threshold) {
         this.repository = jobTitleRepository;
         this.comparator = comparator;
         this.threshold = threshold;
