@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class TokenIntersectionComparator implements JobTitleComparator {
 
     @Override
-    public double Compare(String input, String target) {
+    public double compare(String input, String target) {
         if (input == null || target == null) {
             return 0.0;
         }

@@ -8,9 +8,9 @@ import java.util.HashMap;
  is an instance of this letter elsehwere in the array then its a yellow and a 0.5
  this way the job titles may allow spelling mistakes.
  */
-public class JobTitleWordleJobTitleComparator implements JobTitleComparator {
+public class WordleComparator implements JobTitleComparator {
     @Override
-    public double Compare(String jobTitleInput, String jobTitleTarget) {
+    public double compare(String jobTitleInput, String jobTitleTarget) {
         // Score is what will be used to track the calculation as we go along
         double score = 0;
 
