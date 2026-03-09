@@ -98,10 +98,15 @@ class NormaliserTest {
     }
 
     @Test
-    @DisplayName("should throw on null input")
-    void shouldThrowOnNullInput() {
-        assertThrows(IllegalArgumentException.class,
-                () -> normaliser.normalise(null));
+    @DisplayName("should throw IllegalArgumentException for null input")
+    void shouldThrowForNullInput() {
+        assertThrows(IllegalArgumentException.class, () -> normaliser.normalise(null));
+    }
+
+    @Test
+    @DisplayName("should throw IllegalArgumentException for empty string input")
+    void shouldThrowForEmptyInput() {
+        assertThrows(IllegalArgumentException.class, () -> normaliser.normalise(""));
     }
 
 
