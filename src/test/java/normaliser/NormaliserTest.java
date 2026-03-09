@@ -3,15 +3,26 @@ package normaliser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Normaliser")
 class NormaliserTest {
 
     private final Normaliser normaliser = new Normaliser();
+
+    @Mock
+    private JobTitleRepository mockRepository;
+
+    @Mock
+    private JobTitleComparator mockComparator;
 
     @Test
     @DisplayName("should normalise 'Java engineer' to 'Software engineer'")
@@ -112,6 +123,7 @@ class NormaliserTest {
     @Test
     @DisplayName("should return the first repository title when two titles score equally")
     void shouldReturnFirstMatchOnTie() {
+
         when(mockRepository.getAll()).thenReturn(List.of("Title A", "Title B"));
         when(mockComparator.compare(anyString(), anyString())).thenReturn(0.5);
 
@@ -122,5 +134,15 @@ class NormaliserTest {
         assertEquals("Title A", result.get());
     }
 
+    @Test
+    @DisplayName("should return empty Optional when all comparator scores are below the threshold")
+    void shouldReturnEmptyWhenAllScoresBelowThreshold() {
+        when(mockRepository.getAll()).thenReturn(List.of("Architect", "Accountant"));
+        when(mockComparator.compare(anyString(), anyString())).thenReturn(0.0);
 
+        Normaliser mockedNormaliser = new Normaliser(mockRepository, mockComparator, 0.5);
+        Optional<String> result = mockedNormaliser.normalise("Bricklayer");
+
+        assertTrue(result.isEmpty());
+    }
 }
