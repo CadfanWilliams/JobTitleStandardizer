@@ -86,6 +86,18 @@ class NormaliserTest {
     }
 
     @Test
+    @DisplayName("should return empty Optional for 'Bricklayer' — no close match")
+    void shouldReturnEmptyForBricklayer() {
+        assertTrue(normaliser.normalise("Bricklayer").isEmpty());
+    }
+
+    @Test
+    @DisplayName("should return empty Optional for 'Pilot' — no close match")
+    void shouldReturnEmptyForPilot() {
+        assertTrue(normaliser.normalise("Pilot").isEmpty());
+    }
+
+    @Test
     @DisplayName("should throw on null input")
     void shouldThrowOnNullInput() {
         assertThrows(IllegalArgumentException.class,
