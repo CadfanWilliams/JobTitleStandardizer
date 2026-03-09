@@ -32,6 +32,24 @@ class NormaliserTest {
     }
 
     @Test
+    @DisplayName("should normalise 'Chief Accountant' to 'Accountant'")
+    void shouldNormaliseChiefAccountantToAccountant() {
+        assertEquals(Optional.of("Accountant"), normaliser.normalise("Chief Accountant"));
+    }
+
+    @Test
+    @DisplayName("should normalise 'Chief Quantity Surveyor' to 'Quantity surveyor'")
+    void shouldNormaliseChiefQuantitySurveyorToQuantitySurveyor() {
+        assertEquals(Optional.of("Quantity surveyor"), normaliser.normalise("Chief Quantity Surveyor"));
+    }
+
+    @Test
+    @DisplayName("should normalise 'Solutions Architect' to 'Architect'")
+    void shouldNormaliseSolutionsArchitectToArchitect() {
+        assertEquals(Optional.of("Architect"), normaliser.normalise("Solutions Architect"));
+    }
+
+    @Test
     @DisplayName("should throw on null input")
     void shouldThrowOnNullInput() {
         assertThrows(IllegalArgumentException.class,
