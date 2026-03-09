@@ -3,11 +3,20 @@ import normaliser.Normaliser;
 public class Main {
     public static void main(String[] args) {
 
-        Normaliser n = new Normaliser();
+        Normaliser normaliser = new Normaliser();
 
-        System.out.println(n.normalise("Java engineer"));
-        System.out.println(n.normalise("C# engineer"));
-        System.out.println(n.normalise("Chief Accountant"));
-        System.out.println(n.normalise("Chief Quantity Surveyor"));
+        String[] inputs = {
+                "Java engineer",
+                "C# engineer",
+                "Accountant",
+                "Chief Accountant",
+                "Chief Quantity Surveyor"
+        };
+
+        for (String input : inputs) {
+            String result = normaliser.normalise(input)
+                    .orElse("[no match found]");
+            System.out.printf("%-30s -> %s%n", input, result);
+        }
     }
 }

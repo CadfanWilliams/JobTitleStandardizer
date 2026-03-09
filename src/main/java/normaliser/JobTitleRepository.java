@@ -4,7 +4,7 @@ import java.util.List;
 
 public class JobTitleRepository {
 
-    private final List<String> normalizedTitles = List.of(
+    private static final List<String> normalizedTitles = List.of(
             "Architect",
             "Software engineer",
             "Quantity surveyor",
